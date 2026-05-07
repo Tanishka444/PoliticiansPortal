@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-slate-50 text-gray-800 font-body;
+  }
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-saffron text-white font-body font-semibold px-6 py-2.5 text-sm
+           tracking-wide transition-all duration-200 hover:bg-orange-600
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed rounded-sm shadow-sm;
+  }
+  .btn-blue {
+    @apply bg-gov-blue text-white font-body font-semibold px-6 py-2.5 text-sm
+           tracking-wide transition-all duration-200 hover:bg-blue-900
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed rounded-sm shadow-sm;
+  }
+  .btn-outline {
+    @apply border-2 border-gov-blue text-gov-blue font-body font-semibold px-6 py-2.5
+           text-sm tracking-wide transition-all duration-200 hover:bg-gov-blue
+           hover:text-white active:scale-95 rounded-sm;
+  }
+  .input-field {
+    @apply w-full bg-white border border-gray-300 text-gray-800 placeholder-gray-400
+           px-4 py-2.5 text-sm font-body outline-none rounded-sm
+           focus:border-gov-blue focus:ring-2 focus:ring-blue-100
+           transition-all duration-200;
+  }
+  .gov-card {
+    @apply bg-white border border-gray-200 rounded-sm shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  .section-label {
+    @apply text-xs font-body font-semibold text-gov-blue uppercase tracking-widest;
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 12s linear infinite;
+}
+.tricolor-bar {
+  background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33% 66.66%, #138808 66.66%);
+  height: 5px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.35s ease forwards; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #1a3a6b; border-radius: 3px; }
