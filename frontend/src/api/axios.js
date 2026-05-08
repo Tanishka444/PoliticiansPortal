@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+// Use full backend URL in production (Render) and local proxy during development
+const PROD_API_BASE = 'https://politiciansportal.onrender.com/api'
+const baseURL = import.meta.env.PROD ? PROD_API_BASE : '/api'
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL,
   headers: { 'Content-Type': 'application/json' },
 })
 
