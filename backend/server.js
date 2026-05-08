@@ -35,6 +35,9 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/politician', politicianRoutes);
+// Also accept non-prefixed routes to be forgiving for clients calling root paths
+app.use('/auth', authRoutes);
+app.use('/politician', politicianRoutes);
 
 // Health check
 app.get('/api/health', (req, res) =>
